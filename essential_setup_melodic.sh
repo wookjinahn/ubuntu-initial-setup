@@ -4,7 +4,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 echo "install VGA driver"
-sudo ubuntu-drivers autoinstall
+apt-get install nvidia-driver-470 -y
 
 echo "install CLion IDE"
 sudo snap install clion --classic 
