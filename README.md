@@ -1,9 +1,15 @@
-# How to use
+# How to use  
 
-Shell script for initial setting for Ubuntu.  
-There are essential setup file and ros + realsense file.  
-You choose one of ros version and use it. 
+Shell script for initial setting for Ubuntu 18.04.  
+There are essential + ros setup file & realsense setup file.  
+You have to reboot your system after run "essential_setup.sh"
 
+# YOU MUST CHECK Nvidia Graphic Driver VERSION !
+you can check you vga driver version by  
+```bahs
+ubuntu-drivers devices        # reference : https://www.oofbird.me/55  
+```
+then edit line 7. in your file essential_setup.sh ! 
 
 ## contains
 - essential_setup.sh  
