@@ -38,6 +38,7 @@ sudo chmod +x ros_noetic_setup.sh   # sudo chmod +x ros_melodic_setup.sh
 mv essential_setup.sh ~/
 mv ros_noetic_setup.sh ~/           # mv ros_melodic_setup.sh ~/
 
+cd
 ./essential_setup.sh
 ./ros_noetic_setup.sh               #./ros_noetic_setup.sh
 ```
