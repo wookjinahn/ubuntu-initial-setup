@@ -7,13 +7,14 @@ You choose one of ros version and use it.
 
 ## contains
 - essential_setup.sh  
-  + Clion    
+  + CLion    
+  + VSCode  
   + Slack    
   + Google Chrome    
   + terminator    
   + C++    
   + Python3    
-  + ros
+  + ROS  
   
 - realsense_setup.sh  
   + realsense sdk    
