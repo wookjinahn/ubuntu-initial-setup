@@ -6,6 +6,9 @@ sudo apt-get upgrade -y
 echo "install CLion IDE"
 sudo snap install clion --classic 
 
+echo "install VSCode"
+sudo snap install --classic code
+
 echo "install Slack"
 sudo snap install slack --classic 
 
