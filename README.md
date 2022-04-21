@@ -37,13 +37,13 @@ then access the file by termianl
 ## how to run  
 
 ```bash
-sudo chmod +x essential_setup.sh
-sudo chmod +x ros_noetic_setup.sh   # sudo chmod +x ros_melodic_setup.sh
+sudo chmod +x essential_setup_melodic.sh
+sudo chmod +x ros_noetic_setup.sh   # sudo chmod +x realsense_setup.sh
 
-mv essential_setup.sh ~/
-mv ros_noetic_setup.sh ~/           # mv ros_melodic_setup.sh ~/
+mv essential_setup_melodic.sh ~/
+mv ros_noetic_setup.sh ~/           # mv realsense_setup.sh ~/
 
 cd
-./essential_setup.sh
+./essential_setup_melodic.sh
 ./ros_noetic_setup.sh               #./ros_noetic_setup.sh
 ```
