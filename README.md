@@ -51,9 +51,10 @@ mv essential_setup_melodic.sh ~/
 mv realsense_setup.sh ~/           # mv realsense_setup.sh ~/
 
 cd
+# !!!!! check your graphic driver version !!!!!
 ./essential_setup_melodic.sh
 
-# !!!!! you have to reboot after essential setup !!!!!  
+# !!!!! you must reboot after essential setup !!!!!  
 
 ./realsense_setup.sh               #./realsense_setup.sh
 ```
