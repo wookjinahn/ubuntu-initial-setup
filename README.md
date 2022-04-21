@@ -13,11 +13,11 @@ You choose one of ros version and use it.
   + terminator    
   + C++    
   + Python3    
+  + ros
   
-- ros_noetic_setup.sh  
-  + ros noetic    
+- realsense_setup.sh  
   + realsense sdk    
-  + ealsense-ros    
+  + realsense-ros    
   + d435 post processing  
 
 ## how to get  
