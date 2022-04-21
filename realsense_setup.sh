@@ -35,7 +35,3 @@ catkin_make install
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 echo "alias cs='cd ~/catkin_ws/src'" >> ~/.bashrc
 source ~/.bashrc
-
-
-
-
