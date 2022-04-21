@@ -6,6 +6,7 @@ There are essential setup file and ros + realsense file
 
 ## contains
 - essential_setup.sh
+
 Clion
 Slack
 Google Chrome
