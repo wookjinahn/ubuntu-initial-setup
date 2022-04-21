@@ -7,28 +7,28 @@ There are essential setup file and ros + realsense file
 ## contains
 - essential_setup.sh
 
-  +Clion
+  + Clion
   
-  +Slack
+  + Slack
   
-  +Google Chrome
+  + Google Chrome
   
-  +terminator
+  + terminator
   
-  +C++
+  + C++
   
-  +Python3
+  + Python3
   
   
 - ros_noetic_setup.sh
 
-  +ros noetic
+  + ros noetic
   
-  +realsense sdk
+  + realsense sdk
   
-  +ealsense-ros
+  + ealsense-ros
   
-  +d435 post processing
+  + d435 post processing
 
 
 ## how to get
