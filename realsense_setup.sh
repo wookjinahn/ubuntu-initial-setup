@@ -13,11 +13,18 @@ sudo apt-get install librealsense2-dbg -y
 
 echo "install realsense-ros"
 sudo apt-get install ros-melodic-ddynamic-reconfigure
-mkdir -p ~/catkin_ws/src
+
 cd ~/catkin_ws/src
 git clone https://github.com/IntelRealSense/realsense-ros.git
 cd realsense-ros
 git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+
+# d435 post processing
+cd ~/catkin_ws/src/realsense-ros/realsense2_camera/launch
+sudo sed -i '26 i\      <arg name="filters" default="pointcloud,disparity,spatial,temporal,decimation"/>' demo_pointcloud.launch
+sudo sed -i '130d' rs_camera.launch
+sudo sed -i '130 i\      <arg name="filters" default="pointcloud,disparity,spatial,temporal,decimation"/>' rs_camera.launch
+
 cd ~/catkin_ws/src/
 catkin_init_workspace
 cd ~/catkin_ws
@@ -30,8 +37,5 @@ echo "alias cs='cd ~/catkin_ws/src'" >> ~/.bashrc
 source ~/.bashrc
 
 
-echo "d435 post processing"
-roscd realsense2_camera/launch/
-sudo sed -i '26 i\      <arg name="filters" default="pointcloud,disparity,spatial,temporal,decimation"/>' demo_pointcloud.launch
-sudo sed -i '130d' rs_camera.launch
-sudo sed -i '130 i\      <arg name="filters" default="pointcloud,disparity,spatial,temporal,decimation"/>' rs_camera.launch
+
+
