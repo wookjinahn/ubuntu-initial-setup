@@ -21,12 +21,17 @@ You choose one of ros version and use it.
   + d435 post processing  
 
 ## how to get  
+if you have git package already.  
 
 ```bash
 cd <YOUR_PATH>
 git clone https://github.com/wookjinAhn/ubuntu-initial-setup.git
 cd ubuntu-initial-setup
 ```
+
+else.  
+Click Code button and Download ZIP file and decompress. 
+then access the file by termianl  
 
 
 ## how to run  
