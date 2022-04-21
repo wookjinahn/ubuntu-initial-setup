@@ -1,8 +1,8 @@
 # How to use
 
-Shell script for initial setting for Ubuntu. 
-There are essential setup file and ros + realsense file. 
-You choose one of ros version and use it.
+Shell script for initial setting for Ubuntu.  
+There are essential setup file and ros + realsense file.  
+You choose one of ros version and use it. 
 
 
 ## contains
