@@ -46,6 +46,7 @@ mv realsense_setup.sh ~/           # mv realsense_setup.sh ~/
 
 cd
 ./essential_setup_melodic.sh
+# !!!!! you have to reboot after essential setup !!!!!  
 ./realsense_setup.sh               #./realsense_setup.sh
 ```
 
