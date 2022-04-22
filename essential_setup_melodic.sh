@@ -15,6 +15,7 @@ wget https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0.tar
 tar -xvf cmake-3.21.0.tar.gz
 cd cmake-3.21.0
 ./bootstrap && make && sudo make install
+cd .. && sudo rm -r cmake-3.21.0
 
 echo "install CLion IDE"
 sudo snap install clion --classic 
