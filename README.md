@@ -13,15 +13,15 @@ then edit line 7. in your file essential_setup.sh !
 
 ## contains
 - essential_setup.sh 
-  + Graphic Card Driver 
+  + Graphic Card Driver
+  + Essential Package (GNU, git, wget, curl, make, CMake ...)
   + CLion    
   + VSCode  
   + Slack    
-  + Google Chrome    
-  + terminator    
-  + C++    
+  + Google Chrome 
   + Python3    
-  + ROS  
+  + terminator        
+  + ROS Melodic
   
 - realsense_setup.sh  
   + realsense sdk    
