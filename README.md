@@ -12,7 +12,8 @@ ubuntu-drivers devices        # reference : https://www.oofbird.me/55
 then edit line 7. in your file essential_setup.sh ! 
 
 ## contains
-- essential_setup.sh  
+- essential_setup.sh 
+  + Graphic Card Driver 
   + CLion    
   + VSCode  
   + Slack    
