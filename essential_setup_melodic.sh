@@ -40,6 +40,9 @@ sudo apt-get install terminator -y
 echo "install simplescreenrecorder"
 sudo apt-get install simplescreenrecorder -y
 
+echo "install blueman"
+sudo apt-get install blueman -y
+
 echo "install ROS melodic"
 sudo apt update -y
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'

@@ -22,6 +22,7 @@ then edit line 7. in your file essential_setup.sh !
   + Python3  
   + terminator  
   + simplescreenrecorder  
+  + blueman
   + ROS Melodic  
   
   
