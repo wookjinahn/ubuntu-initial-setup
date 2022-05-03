@@ -4,7 +4,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 echo "install VGA driver"
-apt-get install nvidia-driver-470 -y
+sudo apt-get install nvidia-driver-470 -y
 
 echo "install essential"
 sudo apt-get install build-essential git wget curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
@@ -36,6 +36,9 @@ sudo apt-get install python3 python3-pip -y
 
 echo "install terminator"
 sudo apt-get install terminator -y
+
+echo "install simplescreenrecorder"
+sudo apt-get install simplescreenrecorder -y
 
 echo "install ROS melodic"
 sudo apt update -y

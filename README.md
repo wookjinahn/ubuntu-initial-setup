@@ -15,17 +15,19 @@ then edit line 7. in your file essential_setup.sh !
 - essential_setup.sh 
   + Graphic Card Driver
   + Essential Package (GNU, git, wget, curl, make, CMake ...)
-  + CLion    
+  + CLion  
   + VSCode  
-  + Slack    
-  + Google Chrome 
-  + Python3    
-  + terminator        
-  + ROS Melodic
+  + Slack  
+  + Google Chrome  
+  + Python3  
+  + terminator  
+  + simplescreenrecorder  
+  + ROS Melodic  
+  
   
 - realsense_setup.sh  
-  + realsense sdk    
-  + realsense-ros    
+  + realsense sdk  
+  + realsense-ros  
   + d435 post processing  
 
 ## how to get  
