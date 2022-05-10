@@ -63,6 +63,7 @@ cd ~/catkin_ws/
 catkin_make
 
 echo "setup bash"
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 echo "alias gb='gedit ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
 source ~/.bashrc
