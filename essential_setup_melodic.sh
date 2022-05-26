@@ -7,7 +7,7 @@ echo "install VGA driver"
 sudo apt-get install nvidia-driver-470 -y
 
 echo "install essential"
-sudo apt-get install build-essential git wget curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
+sudo apt-get install build-essential git wget gpg curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
 
 echo "install cmake"
 sudo apt-get install libssl-dev -y
@@ -21,7 +21,13 @@ echo "install CLion IDE"
 sudo snap install clion --classic 
 
 echo "install VSCode"
-sudo snap install --classic code
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+sudo apt install apt-transport-https
+sudo apt-get update
+sudo apt-get install code -y
 
 echo "install Slack"
 sudo snap install slack --classic 
@@ -66,6 +72,7 @@ echo "setup bash"
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 echo "alias gb='gedit ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
+echo "alias cs='cd ~/catkin_ws/src'" >> ~/.bashrc
 source ~/.bashrc
 
 echo "NEED TO REBOOT !"
