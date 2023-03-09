@@ -8,6 +8,7 @@ You have to reboot your system after run "initial_setup.sh"
 - initial_setup.sh 
   + Graphic Card Driver
   + Essential Package (GNU, git, wget, curl, make, CMake ...)
+  + Docker
   + CLion  
   + Slack  
   + Google Chrome  

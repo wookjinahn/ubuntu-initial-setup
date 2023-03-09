@@ -40,12 +40,21 @@ echo -e "$COLOR_GREEN install essential $COLOR_END"
 sudo apt-get install build-essential git wget gpg curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
 
 echo -e "$COLOR_GREEN install cmake $COLOR_END"
+cd $INSTALL_DIR
 sudo apt-get install libssl-dev -y
 wget https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0.tar.gz
 tar -xvf cmake-3.21.0.tar.gz
 cd cmake-3.21.0
 ./bootstrap && make && sudo make install
 cd .. && sudo rm -rf cmake-3.21.0 && sudo rm -rf cmake-3.21.0.tar.gz
+
+echo -e "$COLOR_GREEN install Docker $COLOR_END"
+sudo apt-get update -y
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt-get update -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 echo -e "$COLOR_GREEN install CLion IDE $COLOR_END"
 sudo snap install clion --classic
