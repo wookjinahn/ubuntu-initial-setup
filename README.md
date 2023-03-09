@@ -44,12 +44,12 @@ then access the file by termianl
 ### Package install directory
 - This directory is used when you git clone.      
   _ex) /home/wj or /home/wj/Library_
-### GPU driver
-- You have to enter what is marked recommended. If you don't have an external graphics card, enter and move on.   
-  _ex) nvidia-driver-470_ ( BEFORE - distro ... )
 ### Raisim install directory
 - This directory is not a git repository, but a place where raisim is built and installed.   
-  _ex) /home/wj/raisimLib/install or /home/wj/Library/raisimLib/build/install_     
+  _ex) /home/wj/raisimLib/install or /home/wj/Library/raisimLib/build/install_
+### GPU driver
+- You have to enter what is marked recommended. If you don't have an external graphics card, enter and move on.   
+  _ex) nvidia-driver-470_ ( BEFORE - distro ... )   
 
 ```bash
 sudo chmod +x initial_setup.sh
