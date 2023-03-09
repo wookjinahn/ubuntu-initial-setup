@@ -2,28 +2,19 @@
 
 Shell script for initial setting for Ubuntu 20.04.  
 There are **Essential + Raisim** setup file & realsense setup file.  
-You have to reboot your system after run "essential_setup.sh"
+You have to reboot your system after run "initial_setup.sh"
 
-# YOU MUST CHECK Nvidia Graphic Driver VERSION !
-you can check you vga driver version by  
-```bahs
-ubuntu-drivers devices        # reference : https://www.oofbird.me/55  
-```
-then edit line 7. in your file essential_setup.sh ! 
-
-## contains
+## Contains
 - initial_setup.sh 
   + Graphic Card Driver
   + Essential Package (GNU, git, wget, curl, make, CMake ...)
   + CLion  
-  + VSCode  
   + Slack  
   + Google Chrome  
   + Python3  
   + terminator  
   + simplescreenrecorder  
-  + blueman
-  + **Raisim**
+  + **Raisim** (with Eigen, RBDL, Qt5)
   
   
 - realsense_setup.sh  
@@ -31,7 +22,7 @@ then edit line 7. in your file essential_setup.sh !
   + realsense-ros  
   + d435 post processing  
 
-## how to get  
+## How to get  
 if you have git package already.  
 
 ```bash
@@ -45,11 +36,21 @@ Click Code button and Download ZIP file and decompress.
 then access the file by termianl  
 
 
-## how to run  
+## How to run  
+
+**There are a few things you need to enter during processing.**
+
+### Package install directory
+- This directory is used when you git clone.      
+  _ex) /home/wj or /home/wj/Library_
+### GPU driver
+- You have to enter what is marked recommended. If you don't have an external graphics card, enter and move on.   
+  _ex) nvidia-driver-470_ ( BEFORE - distro ... )
+### Raisim install directory
+- This directory is not a git repository, but a place where raisim is built and installed.   
+  _ex) /home/wj/raisimLib/install or /home/wj/Library/raisimLib/build/install_     
 
 ```bash
 sudo chmod +x initial_setup.sh
 ./initial_setup.sh
 ```
-
-![Screenshot from 2022-04-21 20-29-52](https://user-images.githubusercontent.com/79748805/164449366-0033cd0d-21aa-4c2d-9c3d-83437b37e869.png)

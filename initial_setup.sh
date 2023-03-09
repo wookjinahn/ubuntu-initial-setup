@@ -9,26 +9,32 @@ COLOR_END="\033[0m"
 
 echo "."
 echo "."
+echo "."
 echo -e "$COLOR_RED ------------------------------------------------------------------------ $COLOR_END"
-echo -e "$COLOR_RED |                      | Type install directory |                      | $COLOR_END"
+echo -e "$COLOR_RED |                  | Type package install directory |                  | $COLOR_END"
 echo -e "$COLOR_RED ------------------------------------------------------------------------ $COLOR_END"
-echo " ex) /home/wj/Library. or Just /home/wj"
-read INSTALL_DIRECTORY
-echo "install directory : $INSTALL_DIRECTORY"
-INSTALL_DIR=$INSTALL_DIRECTORY
+echo " ex) /home/wj or /home/wj/Library ..."
+read INSTALL_DIR
+echo "install directory : $INSTALL_DIR"
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-echo -e "$COLOR_GREEN install VGA driver $COLOR_END"
+echo -e "$COLOR_GREEN install GPU driver $COLOR_END"
 ubuntu-drivers devices
 echo -e "$COLOR_RED ----------------------------------------------------------------------- $COLOR_END"
-echo -e "$COLOR_RED |                   | Type recommended VGA driver |                   | $COLOR_END"
+echo -e "$COLOR_RED |                   | Type recommended GPU driver |                   | $COLOR_END"
 echo -e "$COLOR_RED ----------------------------------------------------------------------- $COLOR_END"
 echo -e " ex) nvidia-driver-470  $COLOR_RED ( BEFORE - distro ... )  $COLOR_END"
+echo -e " PLEASE JUST ENTER and SKIP, if you don't have external graphic card."
 read GPU_DRIVER
 echo "gpu driver : $GPU_DRIVER"
-sudo apt-get install $GPU_DRIVER -y
+if [ $GPU_DRIVER ]
+then
+  sudo apt-get install $GPU_DRIVER -y
+else
+  echo "Skip this process."
+fi
 
 echo -e "$COLOR_GREEN install essential $COLOR_END"
 sudo apt-get install build-essential git wget gpg curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
@@ -64,10 +70,6 @@ sudo apt-get install simplescreenrecorder -y
 echo -e "$COLOR_GREEN install eigen $COLOR_END"
 sudo apt-get install libeigen3-dev
 
-echo -e "$COLOR_GREEN install qt5 $COLOR_END"
-sudo apt-get install qtcreator -y
-sudo apt-get install qt5-default -y
-
 echo -e "$COLOR_GREEN install rbdl with urdf reader $COLOR_END"
 cd $INSTALL_DIR
 sudo apt-get install libboost-all-dev -y
@@ -80,26 +82,32 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DRBDL_BUILD_ADDON_URDFREADER=ON
 make
 sudo make install
 
+echo -e "$COLOR_GREEN install qt5 $COLOR_END"
+sudo apt-get install qtcreator -y
+sudo apt-get install qt5-default -y
+
 echo -e "$COLOR_GREEN install raisim $COLOR_END"
 cd $INSTALL_DIR
 echo -e "$COLOR_RED ------------------------------------------------------------------------- $COLOR_END"
 echo -e "$COLOR_RED |                   | Type Raisim install directory |                   | $COLOR_END"
 echo -e "$COLOR_RED ------------------------------------------------------------------------- $COLOR_END"
-echo "ex) /home/wj/raisimLib/install, /home/wj/Library/raisimLib/build/install"
-read RAI_INSTALL_DIRECTORY
-echo "Raisim install directory : $RAI_INSTALL_DIRECTORY"
-RAISIM_INSTALL=$RAI_INSTALL_DIRECTORY
+echo "ex) /home/wj/raisimLib/install or /home/wj/Library/raisimLib/build/install"
+read RAI_INSTALL_DIR
+echo "Raisim install directory : $RAI_INSTALL_DIR"
 cd $INSTALL_DIR
 cd raisimLib
 mkdir build
 mkdir install
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=$RAI_INSTALL_DIRECTORY -DRAISIM_EXAMPLE=ON
+cmake .. -DCMAKE_INSTALL_PREFIX=$RAI_INSTALL_DIR -DRAISIM_EXAMPLE=ON
 make install -j4
 sudo apt-get install minizip ffmpeg -y
 sudo apt-get install vulkan-utils -y
 echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
 echo "export PYTHONPATH=$PYTHONPATH:$INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
+echo " --------------------------------------------------------------------------------------------------- "
+echo " |     For link raisim, cmake option : -DCMAKE_PREFIX_PATH=$INSTALL_DIR/raisimLib/raisim/linux     | "
+echo " --------------------------------------------------------------------------------------------------- "
 
 echo -e "$COLOR_GREEN setup bash $COLOR_END"
 echo "alias gb='gedit ~/.bashrc'" >> ~/.bashrc
