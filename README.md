@@ -16,6 +16,17 @@ You have to reboot your system after run "initial_setup.sh"
   + terminator  
   + simplescreenrecorder  
   + **Raisim** (with Eigen, RBDL, Qt5)
+
+- upboard_initial_setup.sh 
+  + Essential Package (GNU, git, wget, curl, make, CMake ...)
+  + CLion  
+  + Slack  
+  + Google Chrome  
+  + Python3  
+  + terminator  
+  + simplescreenrecorder  
+  + Eigen
+  + RBDL
   
   
 - realsense_setup.sh  
