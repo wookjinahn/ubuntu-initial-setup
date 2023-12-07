@@ -9,7 +9,8 @@ You have to reboot your system after run "initial_setup.sh"
   + Graphic Card Driver
   + Essential Package (GNU, git, wget, curl, make, CMake ...)
   + Docker
-  + CLion  
+  + CLion 
+  + VS Code
   + Slack  
   + Google Chrome  
   + Python3  
@@ -20,6 +21,7 @@ You have to reboot your system after run "initial_setup.sh"
 - upboard_initial_setup.sh 
   + Essential Package (GNU, git, wget, curl, make, CMake ...)
   + CLion  
+  + VS Code
   + Slack  
   + Google Chrome  
   + Python3  
