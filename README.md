@@ -42,7 +42,6 @@ if you have git package already.
 ```bash
 cd <YOUR_PATH>
 git clone https://github.com/wookjinahn/ubuntu-initial-setup.git
-cd ubuntu-initial-setup
 ```
 
 else.  
@@ -51,6 +50,12 @@ then access the file by termianl
 
 
 ## How to run  
+
+```bash
+cd <YOUR_PATH>
+cd ubuntu-initial-setup
+./initial_setup.sh
+```
 
 **There are a few things you need to enter during processing.**
 
@@ -63,7 +68,3 @@ then access the file by termianl
 ### GPU driver
 - You have to enter what is marked recommended. If you don't have an external graphics card, enter and move on.   
   _ex) nvidia-driver-470_ ( BEFORE - distro ... )   
-
-```bash
-./initial_setup.sh
-```
