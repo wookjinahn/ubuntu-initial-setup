@@ -41,8 +41,8 @@ echo "."
 echo "."
 echo "."
 echo -e "$COLOR_GREEN --------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |   INSTALL 00/15   | $COLOR_END"
-echo -e "$COLOR_GREEN |  start installing | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 00/15    | $COLOR_END"
+echo -e "$COLOR_GREEN |   start installing  | $COLOR_END"
 echo -e "$COLOR_GREEN --------------------- $COLOR_END"
 
 mkdir -p $INSTALL_DIR

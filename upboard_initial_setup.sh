@@ -22,10 +22,11 @@ echo "."
 echo "."
 echo "."
 echo -e "$COLOR_GREEN --------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |   INSTALL 00/11   | $COLOR_END"
-echo -e "$COLOR_GREEN |  start installing | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 00/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |   start installing  | $COLOR_END"
 echo -e "$COLOR_GREEN --------------------- $COLOR_END"
 
+mkdir -p $INSTALL_DIR
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
@@ -55,12 +56,18 @@ sudo snap install clion --classic
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 echo -e "$COLOR_GREEN |    INSTALL 04/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |        VSCode       | $COLOR_END"
+echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+sudo snap install code --classic
+
+echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 05/11    | $COLOR_END"
 echo -e "$COLOR_GREEN |        Slack        | $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 sudo snap install slack --classic
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |    INSTALL 05/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 06/11    | $COLOR_END"
 echo -e "$COLOR_GREEN |        Chrome       | $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 wget -nc https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -68,31 +75,31 @@ sudo apt install ./google-chrome-stable_current_amd64.deb -y
 sudo rm -rf ./google-chrome-stable_current_amd64.deb
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |    INSTALL 06/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 07/11    | $COLOR_END"
 echo -e "$COLOR_GREEN |       Python3       | $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 sudo apt-get install python3 python3-pip -y
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |    INSTALL 07/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 08/11    | $COLOR_END"
 echo -e "$COLOR_GREEN |      terminator     | $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 sudo apt-get install terminator -y
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |    INSTALL 08/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 09/11    | $COLOR_END"
 echo -e "$COLOR_GREEN | simplescreenrecorder| $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 sudo apt-get install simplescreenrecorder -y
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |    INSTALL 09/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 10/11    | $COLOR_END"
 echo -e "$COLOR_GREEN |        Eigen        | $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 sudo apt-get install libeigen3-dev
 
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |    INSTALL 10/11    | $COLOR_END"
+echo -e "$COLOR_GREEN |    INSTALL 11/11    | $COLOR_END"
 echo -e "$COLOR_GREEN |         RBDL        | $COLOR_END"
 echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
 cd $INSTALL_DIR
@@ -109,7 +116,6 @@ sudo make install
 echo
 echo
 echo -e "$COLOR_GREEN --------------------- $COLOR_END"
-echo -e "$COLOR_GREEN |   INSTALL 11/11   | $COLOR_END"
 echo -e "$COLOR_GREEN |     installed     | $COLOR_END"
 echo -e "$COLOR_GREEN --------------------- $COLOR_END"
 
@@ -118,6 +124,7 @@ echo -e "$COLOR_GREEN | setup bash | $COLOR_END"
 echo -e "$COLOR_GREEN -------------- $COLOR_END"
 echo "alias gb='gedit ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
+echo "alias cl='cd $INSTALL_DIR'" >> ~/.bashrc
 source ~/.bashrc
 
 cd $CURRENT_DIR
