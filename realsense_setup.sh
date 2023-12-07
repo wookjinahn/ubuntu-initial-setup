@@ -12,7 +12,7 @@ sudo apt-get install librealsense2-dev -y
 sudo apt-get install librealsense2-dbg -y
 
 echo "install realsense-ros"
-sudo apt-get install ros-melodic-ddynamic-reconfigure
+sudo apt-get install ros-noetic-ddynamic-reconfigure
 
 cd ~/catkin_ws/src
 git clone https://github.com/IntelRealSense/realsense-ros.git
