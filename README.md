@@ -41,7 +41,7 @@ if you have git package already.
 
 ```bash
 cd <YOUR_PATH>
-git clone https://github.com/wookjinAhn/ubuntu-initial-setup.git
+git clone https://github.com/wookjinahn/ubuntu-initial-setup.git
 cd ubuntu-initial-setup
 ```
 
@@ -65,6 +65,5 @@ then access the file by termianl
   _ex) nvidia-driver-470_ ( BEFORE - distro ... )   
 
 ```bash
-sudo chmod +x initial_setup.sh
 ./initial_setup.sh
 ```
