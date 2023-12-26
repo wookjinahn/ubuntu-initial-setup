@@ -42,29 +42,23 @@ if you have git package already.
 ```bash
 cd <YOUR_PATH>
 git clone https://github.com/wookjinahn/ubuntu-initial-setup.git
+cd ubuntu-initial-setup
 ```
 
-else.  
-Click Code button and Download ZIP file and decompress. 
-then access the file by termianl  
+else,  
+Click Code button and **Download ZIP file** and **extract.**   
+Then run by termianl  
 
 
 ## How to run  
 
 ```bash
-cd <YOUR_PATH>
-cd ubuntu-initial-setup
+cd <INITIAL_SETUP_DIR>
 ./initial_setup.sh
 ```
 
-**There are a few things you need to enter during processing.**
+**you need to enter GPU driver during processing.**
 
-### Package install directory
-- This directory is used when you git clone.      
-  _ex) /home/wj or /home/wj/Library_
-### Raisim install directory
-- This directory is not a git repository, but a place where raisim is built and installed.   
-  _ex) /home/wj/raisimLib/install or /home/wj/Library/raisimLib/build/install_
 ### GPU driver
 - You have to enter what is marked recommended. If you don't have an external graphics card, enter and move on.   
   _ex) nvidia-driver-470_ ( BEFORE - distro ... )   

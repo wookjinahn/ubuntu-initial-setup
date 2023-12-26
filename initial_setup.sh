@@ -2,29 +2,19 @@
 
 HOME_DIR=/home/$USER/
 CURRENT_DIR=$(pwd)
+INSTALL_DIR=$HOME_DIR/Library
+RAI_INSTALL_DIR=INSTALL_DIR/raisimLib/install
 
 # red color
 COLOR_RED="\033[1;31m"
 COLOR_GREEN="\033[1;32m"
 COLOR_END="\033[0m"
 
-echo
-echo
-echo
-echo -e "$COLOR_RED ------------------------------------------------------------------------ $COLOR_END"
-echo -e "$COLOR_RED |                  | Type package install directory |                  | $COLOR_END"
-echo -e "$COLOR_RED ------------------------------------------------------------------------ $COLOR_END"
-echo " ex) /home/wj or /home/wj/Library ..."
-read INSTALL_DIR
-echo "Check install directory : $INSTALL_DIR"
 echo "."
 echo "."
-echo -e "$COLOR_RED ------------------------------------------------------------------------- $COLOR_END"
-echo -e "$COLOR_RED |                   | Type Raisim install directory |                   | $COLOR_END"
-echo -e "$COLOR_RED ------------------------------------------------------------------------- $COLOR_END"
-echo "ex) /home/wj/raisimLib/install or /home/wj/Library/raisimLib/build/install"
-read RAI_INSTALL_DIR
-echo "Check Raisim install directory : $RAI_INSTALL_DIR"
+echo "."
+echo "Install directory : $INSTALL_DIR"
+echo "Raisim install directory : $RAI_INSTALL_DIR"
 echo "."
 echo "."
 echo "Load gpu drivers..."
@@ -189,15 +179,24 @@ echo -e "$COLOR_GREEN --------------------- $COLOR_END"
 echo -e "$COLOR_GREEN -------------- $COLOR_END"
 echo -e "$COLOR_GREEN | Setup bash | $COLOR_END"
 echo -e "$COLOR_GREEN -------------- $COLOR_END"
+echo "" >> ~/.bashrc
+echo "" >> ~/.bashrc
 echo "alias gb='gedit ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
 echo "alias cl='cd $INSTALL_DIR'" >> ~/.bashrc
+echo "" >> ~/.bashrc
 source ~/.bashrc
 
 cd $CURRENT_DIR
 cd ..
-sudo rm -rf ubuntu-initial-setup
+if [ -e ubuntu-initial-setup ]
+then
+  sudo rm -rf ubuntu-initial-setup
+else
+  sudo rm -rf ubuntu-initial-setup-master
+  sudo rm -rf ubuntu-initial-setup-master.zip
+fi
 
 echo -e "$COLOR_RED NEED TO REBOOT ! $COLOR_END"
 echo -e "$COLOR_RED NEED TO REBOOT ! $COLOR_END"
