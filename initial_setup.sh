@@ -129,7 +129,7 @@ default()
   echo -e "$COLOR_GREEN |    INSTALL 12/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |  VLC Video Player   | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  sudo apt-get install simplescreenrecorder -y
+  sudo snap install vlc
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 13/16    | $COLOR_END"
