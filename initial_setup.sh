@@ -33,7 +33,7 @@ default()
   echo "."
   echo "."
   echo -e "$COLOR_GREEN --------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 00/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 00/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |   start installing  | $COLOR_END"
   echo -e "$COLOR_GREEN --------------------- $COLOR_END"
 
@@ -42,7 +42,7 @@ default()
   sudo apt-get upgrade -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 01/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 01/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |      GPU driver     | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   if [ $GPU_DRIVER ]
@@ -53,13 +53,13 @@ default()
   fi
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 02/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 02/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |      Essential      | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install build-essential git wget gpg curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 03/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 03/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Cmake        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   cd $INSTALL_DIR
@@ -71,7 +71,7 @@ default()
   cd .. && sudo rm -rf cmake-3.21.0 && sudo rm -rf cmake-3.21.0.tar.gz
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 04/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 04/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Docker       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get update -y
@@ -82,25 +82,25 @@ default()
   sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 05/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 05/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        CLion        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo snap install clion --classic
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 06/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 06/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        VSCode       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo snap install code --classic
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 07/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 07/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Slack        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo snap install slack --classic
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 08/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 08/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Chrome       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   wget -nc https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -108,31 +108,37 @@ default()
   sudo rm -rf ./google-chrome-stable_current_amd64.deb
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 09/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 09/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |       Python3       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install python3 python3-pip -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 10/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 10/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |      terminator     | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install terminator -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 11/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 11/16    | $COLOR_END"
   echo -e "$COLOR_GREEN | simplescreenrecorder| $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install simplescreenrecorder -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 12/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 12/16    | $COLOR_END"
+  echo -e "$COLOR_GREEN |  VLC Video Player   | $COLOR_END"
+  echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+  sudo apt-get install simplescreenrecorder -y
+
+  echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 13/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Eigen        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install libeigen3-dev
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 13/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 14/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |         RBDL        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   cd $INSTALL_DIR
@@ -147,14 +153,14 @@ default()
   sudo make install
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 14/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 15/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |         Qt5         | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install qtcreator -y
   sudo apt-get install qt5-default -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  echo -e "$COLOR_GREEN |    INSTALL 15/15    | $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 16/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Raisim       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   cd $INSTALL_DIR
