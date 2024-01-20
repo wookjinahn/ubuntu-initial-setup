@@ -221,7 +221,7 @@ wj()
   echo "alias cl='cd $INSTALL_DIR'" >> ~/.bashrc
   echo "alias cc='cd $HOME_DIR/Desktop/Codes'" >> ~/.bashrc
   echo "alias bi='make && sudo make install'" >> ~/.bashrc
-  echo "alias rr='cd ~/Library/raisimLib/raisimUnity/linux && ./raisimUnitiy.x86_64'" >> ~/.bashrc
+  echo "alias rr='cd ~/Library/raisimLib/raisimUnity/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
   echo "alias rrg='cd ~/Library/raisimLib/raisimUnityOpengl/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
   echo "alias rcs='cd ~/Library/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
   echo "alias rtc='cd ~/Library/camel-canine/cmake-build-debug/canine_ui && ./QtTCPClient'" >> ~/.bashrc
