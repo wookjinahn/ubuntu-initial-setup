@@ -7,7 +7,7 @@ You have to reboot your system after run "initial_setup.sh"
 ## Contains
 - initial_setup.sh 
   + Graphic Card Driver
-  + Essential Package (GNU, git, wget, curl, make, CMake ...)
+  + Essential Package (GNU, git, wget, curl, make, CMake, htop ...)
   + Docker
   + CLion 
   + VSCode
@@ -18,6 +18,7 @@ You have to reboot your system after run "initial_setup.sh"
   + simplescreenrecorder
   + VLC Video Player
   + **Raisim** (with Eigen, RBDL, Qt5)
+
 
 - upboard_initial_setup.sh 
   + Essential Package (GNU, git, wget, curl, make, CMake ...)

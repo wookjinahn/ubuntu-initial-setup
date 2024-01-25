@@ -56,7 +56,7 @@ default()
   echo -e "$COLOR_GREEN |    INSTALL 02/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |      Essential      | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  sudo apt-get install build-essential git wget gpg curl pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
+  sudo apt-get install build-essential git wget gpg curl htop pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 03/16    | $COLOR_END"
