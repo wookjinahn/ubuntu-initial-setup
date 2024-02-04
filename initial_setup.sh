@@ -225,6 +225,7 @@ wj()
   echo "alias rrg='cd ~/Library/raisimLib/raisimUnityOpengl/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
   echo "alias rcs='cd ~/Library/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
   echo "alias rtc='cd ~/Library/camel-canine/cmake-build-debug/canine_ui && ./QtTCPClient'" >> ~/.bashrc
+  echo "alias brcs='cd ~/Library/camel-perception-heightmap/build && make && sudo make install && cd ~/Library/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
 }
 
 if [ $# -eq 0 ]; then
