@@ -2,8 +2,9 @@
 
 HOME_DIR=/home/$USER/
 CURRENT_DIR=$(pwd)
-INSTALL_DIR=$HOME_DIR/Library
-RAI_INSTALL_DIR=INSTALL_DIR/raisimLib/install
+LIB_INSTALL_DIR=$HOME_DIR/Library
+CODES_DIR=$HOME_DIR/Desktop/Codes
+RAI_INSTALL_DIR=$LIB_INSTALL_DIR/raisimLib/install
 
 # red color
 COLOR_RED="\033[1;31m"
@@ -15,7 +16,7 @@ default()
   echo "."
   echo "."
   echo "."
-  echo "Install directory : $INSTALL_DIR"
+  echo "Library install directory : $LIB_INSTALL_DIR"
   echo "Raisim install directory : $RAI_INSTALL_DIR"
   echo "."
   echo "."
@@ -37,7 +38,7 @@ default()
   echo -e "$COLOR_GREEN |   start installing  | $COLOR_END"
   echo -e "$COLOR_GREEN --------------------- $COLOR_END"
 
-  mkdir -p $INSTALL_DIR
+  mkdir -p $LIB_INSTALL_DIR
   sudo apt-get update -y
   sudo apt-get upgrade -y
 
@@ -62,7 +63,7 @@ default()
   echo -e "$COLOR_GREEN |    INSTALL 03/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Cmake        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  cd $INSTALL_DIR
+  cd $LIB_INSTALL_DIR
   sudo apt-get install libssl-dev -y
   wget https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0.tar.gz
   tar -xvf cmake-3.21.0.tar.gz
@@ -141,7 +142,7 @@ default()
   echo -e "$COLOR_GREEN |    INSTALL 14/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |         RBDL        | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  cd $INSTALL_DIR
+  cd $LIB_INSTALL_DIR
   sudo apt-get install libboost-all-dev -y
   git clone https://github.com/rbdl/rbdl.git
   cd rbdl
@@ -163,7 +164,7 @@ default()
   echo -e "$COLOR_GREEN |    INSTALL 16/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Raisim       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  cd $INSTALL_DIR
+  cd $LIB_INSTALL_DIR
   git clone https://github.com/raisimTech/raisimLib.git
   cd raisimLib
   mkdir build
@@ -173,10 +174,10 @@ default()
   make install -j4
   sudo apt-get install minizip ffmpeg -y
   sudo apt-get install vulkan-utils -y
-  echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
-  echo "export PYTHONPATH=$PYTHONPATH:$INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
+  echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
+  echo "export PYTHONPATH=$PYTHONPATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
   echo " --------------------------------------------------------------------------------------------------- "
-  echo " |     For link raisim, cmake option : -DCMAKE_PREFIX_PATH=$INSTALL_DIR/raisimLib/raisim/linux     | "
+  echo " |     For link raisim, cmake option : -DCMAKE_PREFIX_PATH=$LIB_INSTALL_DIR/raisimLib/raisim/linux     | "
   echo " --------------------------------------------------------------------------------------------------- "
   echo
   echo
@@ -216,16 +217,33 @@ remove()
 
 wj()
 {
-  mkdir -p $HOME_DIR/Desktop/Codes
+  mkdir -p $CODES_DIR
 
-  echo "alias cl='cd $INSTALL_DIR'" >> ~/.bashrc
-  echo "alias cc='cd $HOME_DIR/Desktop/Codes'" >> ~/.bashrc
+  USERNAME="wookjinahn"
+  TOKEN=$(sed -n '1p' $HOME_DIR/test.txt)
+
+  CAMEL_GIT="github.com/PNUxCAMEL"
+  REPO_1="camel-euclid"
+  REPO_2="camel-perception-heightmap"
+  REPO_3="camel-canine"
+
+  cd $LIB_INSTALL_DIR
+  git clone https://${USERNAME}:${TOKEN}@"$CAMEL_GIT/$REPO_1.git"
+  git clone https://${USERNAME}:${TOKEN}@"$CAMEL_GIT/$REPO_2.git"
+  cd $REPO_1 && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && make && sudo make install && cd $LIB_INSTALL_DIR
+  cd $REPO_2 && ./install.sh
+
+#  cd $CODES_DIR
+#  git clone https://${USERNAME}:${TOKEN}@"$CAMEL_GIT/$REPO_3.git"
+
+  echo "alias cl='cd $LIB_INSTALL_DIR'" >> ~/.bashrc
+  echo "alias cc='cd $CODES_DIR'" >> ~/.bashrc
   echo "alias bi='make && sudo make install'" >> ~/.bashrc
-  echo "alias rr='cd ~/Library/raisimLib/raisimUnity/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
-  echo "alias rrg='cd ~/Library/raisimLib/raisimUnityOpengl/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
-  echo "alias rcs='cd ~/Library/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
-  echo "alias rtc='cd ~/Library/camel-canine/cmake-build-debug/canine_ui && ./QtTCPClient'" >> ~/.bashrc
-  echo "alias brcs='cd ~/Library/camel-perception-heightmap/build && make && sudo make install && cd ~/Library/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
+  echo "alias rr='cd $LIB_INSTALL_DIR/raisimLib/raisimUnity/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
+  echo "alias rrg='cd $LIB_INSTALL_DIR/raisimLib/raisimUnityOpengl/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
+  echo "alias rcs='cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
+  echo "alias rtc='cd $CODES_DIR/camel-canine/cmake-build-debug/canine_ui && ./QtTCPClient'" >> ~/.bashrc
+  echo "alias brcs='cd $LIB_INSTALL_DIR/camel-perception-heightmap/build && make && sudo make install && cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
 }
 
 if [ $# -eq 0 ]; then
