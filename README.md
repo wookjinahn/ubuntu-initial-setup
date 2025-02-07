@@ -5,7 +5,7 @@ There are **Essential + Raisim** setup file & realsense setup file.
 You have to reboot your system after run "initial_setup.sh"
 
 ## Contains
-- initial_setup.sh 
+- desktop.sh 
   + Graphic Card Driver
   + Essential Package (GNU, git, wget, curl, make, CMake, htop ...)
   + Docker
@@ -20,7 +20,7 @@ You have to reboot your system after run "initial_setup.sh"
   + **Raisim** (with Eigen, RBDL, Qt5)
 
 
-- upboard_initial_setup.sh 
+- upboard.sh 
   + Essential Package (GNU, git, wget, curl, make, CMake ...)
   + CLion  
   + VSCode
@@ -31,6 +31,18 @@ You have to reboot your system after run "initial_setup.sh"
   + simplescreenrecorder  
   + Eigen
   + RBDL
+  
+  
+- jetson_xavier_nx.sh 
+  + Essential Package (GNU, git, wget, curl, make, CMake, htop ...)
+  + Docker
+  + CLion
+  + VSCode
+  + Chromium
+  + Python3
+  + terminator
+  + simplescreenrecorder
+  + VLC Video Player
   
   
 - realsense_setup.sh  
@@ -56,7 +68,7 @@ Then run by termianl
 
 ```bash
 cd <INITIAL_SETUP_DIR>
-./initial_setup.sh
+./desktop.sh    # upboard, jetson_xavier_nx
 ```
 
 **you need to enter GPU driver during processing.**
