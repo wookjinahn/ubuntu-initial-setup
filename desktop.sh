@@ -158,7 +158,7 @@ default()
   echo -e "$COLOR_GREEN |         Qt5         | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install qtcreator -y
-  sudo apt-get install qt5-default -y
+  sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools -y
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 16/16    | $COLOR_END"
@@ -174,6 +174,7 @@ default()
   make install -j4
   sudo apt-get install minizip ffmpeg -y
   sudo apt-get install vulkan-utils -y
+  # sudo ln -s /usr/lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
   echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
   echo "export PYTHONPATH=$PYTHONPATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
   echo " --------------------------------------------------------------------------------------------------- "
