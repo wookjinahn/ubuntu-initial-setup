@@ -1,5 +1,6 @@
 #!/bin/bash
 
+UBUNTU_VERSION=$(lsb_release -rs)
 HOME_DIR=/home/$USER/
 CURRENT_DIR=$(pwd)
 LIB_INSTALL_DIR=$HOME_DIR/Library
@@ -16,6 +17,7 @@ default()
   echo "."
   echo "."
   echo "."
+  echo "Ubuntu Version : $UBUNTU_VERSION"
   echo "Library install directory : $LIB_INSTALL_DIR"
   echo "Raisim install directory : $RAI_INSTALL_DIR"
   echo "."
@@ -58,6 +60,12 @@ default()
   echo -e "$COLOR_GREEN |      Essential      | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install build-essential git wget gpg curl htop pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
+  sudo apt-get install libssl-dev libusb-1.0-0-dev libudev-dev libgtk-3-dev
+  sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
+  if [ "$VERSION_ID" = "22.04" ]; then
+  then
+    sudo apt-get install gnome-screenshot -y
+  fi
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 03/16    | $COLOR_END"
@@ -76,9 +84,9 @@ default()
   echo -e "$COLOR_GREEN |        Docker       | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get update -y
-  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+  sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   sudo apt-get update -y
   sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
@@ -158,7 +166,12 @@ default()
   echo -e "$COLOR_GREEN |         Qt5         | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install qtcreator -y
-  sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools -y
+  if [ "$VERSION_ID" = "22.04" ]; then
+  then
+    sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools -y
+  else
+    sudo apt-get install qt5-default -y
+  fi
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 16/16    | $COLOR_END"
@@ -174,7 +187,10 @@ default()
   make install -j4
   sudo apt-get install minizip ffmpeg -y
   sudo apt-get install vulkan-utils -y
-  # sudo ln -s /usr/lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
+  if [ "$VERSION_ID" = "22.04" ]; then
+  then
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
+  fi
   echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
   echo "export PYTHONPATH=$PYTHONPATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
   echo " --------------------------------------------------------------------------------------------------- "
