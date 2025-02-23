@@ -73,11 +73,11 @@ default()
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   cd $LIB_INSTALL_DIR
   sudo apt-get install libssl-dev -y
-  wget https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0.tar.gz
-  tar -xvf cmake-3.21.0.tar.gz
-  cd cmake-3.21.0
+  wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1.tar.gz
+  tar -xvf cmake-3.22.1.tar.gz
+  cd cmake-3.22.1
   ./bootstrap && make && sudo make install
-  cd .. && sudo rm -rf cmake-3.21.0 && sudo rm -rf cmake-3.21.0.tar.gz
+  cd .. && sudo rm -rf cmake-3.22.1 && sudo rm -rf cmake-3.22.1.tar.gz
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 04/16    | $COLOR_END"
