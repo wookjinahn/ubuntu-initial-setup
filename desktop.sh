@@ -1,7 +1,7 @@
 #!/bin/bash
 
 UBUNTU_VERSION=$(lsb_release -rs)
-HOME_DIR=/home/$USER/
+HOME_DIR=/home/$USER
 CURRENT_DIR=$(pwd)
 LIB_INSTALL_DIR=$HOME_DIR/Library
 CODES_DIR=$HOME_DIR/Desktop/Codes
@@ -261,6 +261,19 @@ wj()
   echo "alias rcs='cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
   echo "alias rtc='cd $CODES_DIR/camel-canine/cmake-build-debug/canine_ui && ./QtTCPClient'" >> ~/.bashrc
   echo "alias brcs='cd $LIB_INSTALL_DIR/camel-perception-heightmap/build && make && sudo make install && cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
+  
+  
+  echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+  echo -e "$COLOR_GREEN |       INSTALL       | $COLOR_END"
+  echo -e "$COLOR_GREEN |       Anaconda      | $COLOR_END"
+  echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+  ANACONDA_URL=https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+  wget $ANACONDA_URL
+  bash Anaconda3-2024.10-1-Linux-x86_64.sh -b -p $LIB_INSTALL_DIR/Anaconda
+  sudo rm -rf Anaconda3-2024.10-1-Linux-x86_64.sh
+  eval "$($LIB_INSTALL_DIR/Anaconda/bin/conda shell.bash hook)"
+  conda init bash
+  source ~/.bashrc
 }
 
 if [ $# -eq 0 ]; then
