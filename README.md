@@ -17,6 +17,7 @@ You have to reboot your system after run "initial_setup.sh"
   + terminator  
   + simplescreenrecorder
   + VLC Video Player
+  + Hancom HWP
   + **Raisim** (with Eigen, RBDL, Qt5)
 
 

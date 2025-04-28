@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 UBUNTU_VERSION=$(lsb_release -rs)
 HOME_DIR=/home/$USER
@@ -48,11 +49,10 @@ default()
   echo -e "$COLOR_GREEN |    INSTALL 01/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |      GPU driver     | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
-  if [ $GPU_DRIVER ]
-  then
+  if [ -n "$GPU_DRIVER" ]; then
     sudo apt-get install $GPU_DRIVER -y
   else
-    echo "$COLOR_GREEN Skip this process. $COLOR_END"
+    echo -e "$COLOR_GREEN Skip this process. $COLOR_END"
   fi
 
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
@@ -62,8 +62,7 @@ default()
   sudo apt-get install build-essential git wget gpg curl htop pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev -y
   sudo apt-get install libssl-dev libusb-1.0-0-dev libudev-dev libgtk-3-dev
   sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
-  if [ "$VERSION_ID" = "22.04" ]; then
-  then
+  if [ "$UBUNTU_VERSION" = "22.04" ]; then
     sudo apt-get install gnome-screenshot -y
   fi
 
@@ -166,13 +165,21 @@ default()
   echo -e "$COLOR_GREEN |         Qt5         | $COLOR_END"
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   sudo apt-get install qtcreator -y
-  if [ "$VERSION_ID" = "22.04" ]; then
-  then
+  if [ "$UBUNTU_VERSION" = "22.04" ]; then
     sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools -y
   else
     sudo apt-get install qt5-default -y
   fi
 
+  echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+  echo -e "$COLOR_GREEN |    INSTALL 15/16    | $COLOR_END"
+  echo -e "$COLOR_GREEN |         HWP         | $COLOR_END"
+  echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
+  sudo dpkg -i hoffice-hwp_11.20.0.989_amd64.deb
+  sudo apt-get update
+  sudo sed -i 's|^Exec=/opt/hnc/hoffice11/Bin/hwp %f$|Exec=/bin/bash -c "LANGUAGE=ko_KR /opt/hnc/hoffice11/Bin/hwp %f"|' /usr/share/applications/hoffice11-hwp.desktop
+  gsettings set org.freedesktop.ibus.engine.hangul use-event-forwarding false
+  
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
   echo -e "$COLOR_GREEN |    INSTALL 16/16    | $COLOR_END"
   echo -e "$COLOR_GREEN |        Raisim       | $COLOR_END"
@@ -184,11 +191,10 @@ default()
   mkdir -p $RAI_INSTALL_DIR
   cd build
   cmake .. -DCMAKE_INSTALL_PREFIX=$RAI_INSTALL_DIR -DRAISIM_EXAMPLE=ON
-  make install -j4
+  make install -j$(nproc)
   sudo apt-get install minizip ffmpeg -y
   sudo apt-get install vulkan-utils -y
-  if [ "$VERSION_ID" = "22.04" ]; then
-  then
+  if [ "$UBUNTU_VERSION" = "22.04" ]; then
     sudo ln -s /usr/lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
   fi
   echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIB_INSTALL_DIR/raisimLib/raisim/linux/lib" >> ~/.bashrc
@@ -210,15 +216,13 @@ default()
   echo "alias gb='gedit ~/.bashrc'" >> ~/.bashrc
   echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
   echo "" >> ~/.bashrc
-  source ~/.bashrc
 }
 
 remove()
 {
   cd $CURRENT_DIR
   cd ..
-  if [ -e ubuntu-initial-setup ]
-  then
+  if [ -e ubuntu-initial-setup ]; then
     sudo rm -rf ubuntu-initial-setup
   else
     sudo rm -rf ubuntu-initial-setup-master
@@ -258,9 +262,9 @@ wj()
   echo "alias bi='make && sudo make install'" >> ~/.bashrc
   echo "alias rr='cd $LIB_INSTALL_DIR/raisimLib/raisimUnity/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
   echo "alias rrg='cd $LIB_INSTALL_DIR/raisimLib/raisimUnityOpengl/linux && ./raisimUnity.x86_64'" >> ~/.bashrc
-  echo "alias rcs='cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
+  echo "alias rcs='cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j$(nproc) && ./camel-canine-simul'" >> ~/.bashrc
   echo "alias rtc='cd $CODES_DIR/camel-canine/cmake-build-debug/canine_ui && ./QtTCPClient'" >> ~/.bashrc
-  echo "alias brcs='cd $LIB_INSTALL_DIR/camel-perception-heightmap/build && make && sudo make install && cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j4 && ./camel-canine-simul'" >> ~/.bashrc
+  echo "alias brcs='cd $LIB_INSTALL_DIR/camel-perception-heightmap/build && make && sudo make install && cd $CODES_DIR/camel-canine/cmake-build-release && cmake --build . --target camel-canine-simul -- -j$(nproc) && ./camel-canine-simul'" >> ~/.bashrc
   
   
   echo -e "$COLOR_GREEN ----------------------- $COLOR_END"
@@ -273,7 +277,6 @@ wj()
   sudo rm -rf Anaconda3-2024.10-1-Linux-x86_64.sh
   eval "$($LIB_INSTALL_DIR/Anaconda/bin/conda shell.bash hook)"
   conda init bash
-  source ~/.bashrc
 }
 
 if [ $# -eq 0 ]; then
